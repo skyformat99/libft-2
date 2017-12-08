@@ -7,7 +7,7 @@ INDEX = index
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(FLAGS) $(SRCS)
+	gcc $(FLAGS) -c $(SRCS)
 	ar rc $(NAME) $(OBJECTS)
 	ranlib $(NAME)
 
