@@ -1,7 +1,7 @@
 NAME = libft.a
 SRCS = *.c
 OBJECTS = *.o
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Wextra -Werror
 INDEX = index
 
 all: $(NAME)
