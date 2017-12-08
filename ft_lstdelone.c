@@ -6,14 +6,14 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 18:52:41 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/07 19:39:34 by ssong            ###   ########.fr       */
+/*   Updated: 2017/12/08 11:19:48 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-void ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
 	if (alst == NULL)
 		return ;

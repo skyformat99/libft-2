@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/07 12:46:00 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/07 13:40:12 by ssong            ###   ########.fr       */
+/*   Updated: 2017/12/07 22:04:24 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		return (tmp);
 	}
 	tmp->content = malloc(content_size);
+	tmp->content_size = content_size;
 	if (tmp->content == NULL)
 		return (NULL);
 	ft_memcpy(tmp->content, content, content_size);

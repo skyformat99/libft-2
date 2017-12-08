@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 20:01:53 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/07 11:59:18 by ssong            ###   ########.fr       */
+/*   Updated: 2017/12/07 22:58:16 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char		**ft_strsplit(char const *s, char c)
 	char	**split;
 	int		n;
 
-	if (s == NULL)
+	if (s == NULL || *s == 0)
 		return (NULL);
 	n = countwords(s, c);
 	split = (char**)malloc(sizeof(char*) * (n + 1));

@@ -6,13 +6,13 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 11:21:17 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/06 14:53:33 by ssong            ###   ########.fr       */
+/*   Updated: 2017/12/07 22:02:59 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr(char const *s)
+void	ft_putstr(char *s)
 {
 	if (s == NULL)
 		return ;
