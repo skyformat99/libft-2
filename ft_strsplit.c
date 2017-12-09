@@ -6,32 +6,12 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 20:01:53 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/09 13:56:25 by ssong            ###   ########.fr       */
+/*   Updated: 2017/12/09 15:33:15 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
-
-static int	countwords(char const *s, char c)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] == c && s[i])
-			i++;
-		if (s[i] && s[i] != c)
-			j++;
-		while (s[i] != c && s[i])
-			i++;
-	}
-	return (j);
-}
 
 static char	**putstring(char **split, char const *s, char c)
 {
@@ -95,7 +75,7 @@ char		**ft_strsplit(char const *s, char c)
 
 	if (s == NULL)
 		return (NULL);
-	n = countwords(s, c);
+	n = ft_countwords(s, c);
 	split = (char**)malloc(sizeof(char*) * (n + 1));
 	if (split == NULL)
 		return (NULL);

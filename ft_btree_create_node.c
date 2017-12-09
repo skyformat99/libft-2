@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_btree_create_node.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 17:24:17 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/09 15:33:02 by ssong            ###   ########.fr       */
+/*   Created: 2017/12/09 15:11:52 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/09 15:31:45 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char		*ft_itoa(int n)
+t_btree		*ft_btree_create_node(void *item)
 {
-	char	*str;
-	size_t	c;
-	size_t	neg;
+	t_btree	*tmp;
 
-	neg = 1;
-	c = ft_countdigits(n);
-	str = ft_strnew(c);
-	if (!str)
-		return (NULL);
-	str[c] = '\0';
-	if (n == 0)
-		str[0] = '0';
-	while (n != 0)
+	tmp = malloc(sizeof(t_btree));
+	if (tmp)
 	{
-		if (n < 0)
-		{
-			str[0] = '-';
-			neg = -1;
-		}
-		str[c - 1] = ((n % 10) * neg) + '0';
-		n = (n / 10);
-		c--;
+		tmp->left = NULL;
+		tmp->right = NULL;
+		tmp->item = item;
 	}
-	return (str);
+	return (tmp);
 }

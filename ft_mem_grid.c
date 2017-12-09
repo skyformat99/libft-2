@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_mem_grid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 17:24:17 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/09 15:33:02 by ssong            ###   ########.fr       */
+/*   Created: 2017/12/09 14:53:53 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/09 15:32:07 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char		*ft_itoa(int n)
+int		**ft_mem_grid(int row, int col)
 {
-	char	*str;
-	size_t	c;
-	size_t	neg;
+	int i;
+	int **grid;
 
-	neg = 1;
-	c = ft_countdigits(n);
-	str = ft_strnew(c);
-	if (!str)
-		return (NULL);
-	str[c] = '\0';
-	if (n == 0)
-		str[0] = '0';
-	while (n != 0)
+	i = 0;
+	grid = malloc((sizeof(int*)) * row);
+	while (i < row)
 	{
-		if (n < 0)
-		{
-			str[0] = '-';
-			neg = -1;
-		}
-		str[c - 1] = ((n % 10) * neg) + '0';
-		n = (n / 10);
-		c--;
+		grid[i] = malloc(sizeof(int) * col);
+		i++;
 	}
-	return (str);
+	return (grid);
 }
