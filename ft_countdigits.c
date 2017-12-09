@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_countdigits.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 14:37:38 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/08 16:18:30 by ssong            ###   ########.fr       */
+/*   Created: 2017/12/09 14:28:05 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/09 15:32:48 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+int	ft_countdigits(int n)
 {
-	t_list *tmp;
+	int		c;
 
-	while (*alst)
+	c = 0;
+	if (n == 0)
+		c++;
+	else if (n < 0)
+		c++;
+	while (n != 0)
 	{
-		tmp = (*alst)->next;
-		ft_lstdelone(alst, del);
-		*alst = tmp;
+		n = n / 10;
+		c++;
 	}
+	return (c);
 }

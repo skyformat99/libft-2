@@ -6,31 +6,12 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 20:01:53 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/08 12:05:47 by ssong            ###   ########.fr       */
+/*   Updated: 2017/12/09 15:33:15 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
-static int	countwords(char const *s, char c)
-{
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		while (s[i] == c && s[i])
-			i++;
-		if (s[i] != c)
-			j++;
-		while (s[i] != c && s[i])
-			i++;
-	}
-	return (j);
-}
 
 static char	**putstring(char **split, char const *s, char c)
 {
@@ -43,7 +24,7 @@ static char	**putstring(char **split, char const *s, char c)
 	while (s[i])
 	{
 		y = 0;
-		while (s[i] && s[i] == c)
+		while (s[i] == c)
 			i++;
 		while (s[i] && s[i] != c)
 		{
@@ -52,11 +33,12 @@ static char	**putstring(char **split, char const *s, char c)
 			y++;
 		}
 		if (y > 0)
+		{
 			split[x][y] = 0;
-		if (s[i] == 0)
-			split[x] = 0;
-		x++;
+			x++;
+		}
 	}
+	split[x] = 0;
 	return (split);
 }
 
@@ -79,8 +61,10 @@ static void	malloc_split(char **split, char const *s, char c)
 			i++;
 		}
 		if (n > 0)
+		{
 			split[x] = (char*)malloc(sizeof(char) * (n + 1));
-		x++;
+			x++;
+		}
 	}
 }
 
@@ -89,9 +73,9 @@ char		**ft_strsplit(char const *s, char c)
 	char	**split;
 	int		n;
 
-	if (s == 0)
+	if (s == NULL)
 		return (NULL);
-	n = countwords(s, c);
+	n = ft_countwords(s, c);
 	split = (char**)malloc(sizeof(char*) * (n + 1));
 	if (split == NULL)
 		return (NULL);
@@ -101,6 +85,6 @@ char		**ft_strsplit(char const *s, char c)
 		putstring(split, s, c);
 	}
 	else if (s[0] == 0)
-		split[0] = 0;
+		split[0] = NULL;
 	return (split);
 }

@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_iswhite.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 14:37:38 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/08 16:18:30 by ssong            ###   ########.fr       */
+/*   Created: 2017/12/09 14:23:05 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/09 15:35:55 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+int	ft_iswhite(char *str)
 {
-	t_list *tmp;
+	int i;
 
-	while (*alst)
-	{
-		tmp = (*alst)->next;
-		ft_lstdelone(alst, del);
-		*alst = tmp;
-	}
+	i = 0;
+	while (str[i] && (str[i] == ' ' || str[i] == '\r'
+				|| str[i] == '\t' || str[i] == '\n'))
+		i++;
+	return (i);
 }

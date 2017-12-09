@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_countwords.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/08 14:37:38 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/08 16:18:30 by ssong            ###   ########.fr       */
+/*   Created: 2017/12/09 14:30:23 by ssong             #+#    #+#             */
+/*   Updated: 2017/12/09 15:32:25 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+int	ft_countwords(char const *s, char c)
 {
-	t_list *tmp;
+	int i;
+	int j;
 
-	while (*alst)
+	i = 0;
+	j = 0;
+	while (s[i])
 	{
-		tmp = (*alst)->next;
-		ft_lstdelone(alst, del);
-		*alst = tmp;
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] && s[i] != c)
+			j++;
+		while (s[i] != c && s[i])
+			i++;
 	}
+	return (j);
 }

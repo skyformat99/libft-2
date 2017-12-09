@@ -6,29 +6,12 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 17:24:17 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/07 11:56:35 by ssong            ###   ########.fr       */
+/*   Updated: 2017/12/09 15:33:02 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-
-static int	countdigits(int n)
-{
-	int		c;
-
-	c = 0;
-	if (n == 0)
-		c++;
-	else if (n < 0)
-		c++;
-	while (n != 0)
-	{
-		n = n / 10;
-		c++;
-	}
-	return (c);
-}
 
 char		*ft_itoa(int n)
 {
@@ -37,7 +20,7 @@ char		*ft_itoa(int n)
 	size_t	neg;
 
 	neg = 1;
-	c = countdigits(n);
+	c = ft_countdigits(n);
 	str = ft_strnew(c);
 	if (!str)
 		return (NULL);
