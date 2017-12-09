@@ -6,7 +6,7 @@
 /*   By: ssong <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 16:04:14 by ssong             #+#    #+#             */
-/*   Updated: 2017/12/08 11:22:06 by ssong            ###   ########.fr       */
+/*   Updated: 2017/12/08 16:38:19 by ssong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void			ft_strdel(char **as);
 char			*ft_strdup(const char *s1);
 size_t			ft_strlcat(char *dst, const char *src, size_t size);
 char			*ft_strncat(char *s1, const char *s2, size_t n);
-int				ft_strlen(const char *s);
+size_t			ft_strlen(const char *s);
 char			*ft_strncat(char *s1, const char *s2, size_t n);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
